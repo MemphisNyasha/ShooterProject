@@ -5,6 +5,14 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    private bool isPaused = false;
+    private CursorSettings cursorSettings;
+
+    private void Start()
+    {
+        Time.timeScale = 1f;
+    }
+
     public bool Quit()
     {
         return Input.GetKeyDown(KeyCode.Escape);
@@ -44,4 +52,33 @@ public class PlayerInput : MonoBehaviour
     {
         return Input.GetMouseButtonDown(0);
     }
+
+    public void PauseGame()
+    {
+        if (isPaused)
+        {
+            Time.timeScale = 1;
+
+            Cursor.lockState = cursorSettings.LockState;
+            Cursor.visible = cursorSettings.IsVisible;
+        }
+        else
+        {
+            Time.timeScale = 0;
+
+            cursorSettings.IsVisible = Cursor.visible;
+            cursorSettings.LockState = Cursor.lockState;
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+        isPaused = !isPaused;
+    }
+}
+
+public struct CursorSettings
+{
+    public CursorLockMode LockState;
+    public bool IsVisible;
 }

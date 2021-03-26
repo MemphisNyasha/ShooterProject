@@ -9,8 +9,8 @@ using UnityEngine;
 public class Tips : MonoBehaviour
 {
     public TextMeshProUGUI Text;
-    [Range(0f, 10f)]
-    public float TimeToShow = 8f;
+    [Range(0f, 20f)]
+    public float TimeToShow = 10f;
     [Range(0f, 5f)]
     public float FadeTime = 1.5f;
     [Range(0f, 500f)]
@@ -31,6 +31,8 @@ public class Tips : MonoBehaviour
             Instance = this;
         else
             Destroy(this.gameObject);
+
+        ShowTip("There are some zombies around that can eat you. Be careful!!!\nNo. They're just walking around, you can shoot them by pressing \"Enter\" button.");
     }
     
     public void ShowTip(string text)

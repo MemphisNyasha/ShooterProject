@@ -30,13 +30,13 @@ public class MainUI : MonoBehaviour
     {
         if (isOpen)
         {
-            Time.timeScale = 1;
+            playerInput.PauseGame();
             canvasGroup.DOFade(0, 0.5f);
             canvasGroup.interactable = false;
         }
         else
         {
-            canvasGroup.DOFade(1, 0.5f).OnComplete(() => Time.timeScale = 0);
+            canvasGroup.DOFade(1, 0.5f).OnComplete(() => playerInput.PauseGame());
             canvasGroup.interactable = true;
         }
 

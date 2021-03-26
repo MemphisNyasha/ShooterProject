@@ -17,7 +17,8 @@ public class Tower : MonoBehaviour
             {
                 if (Vector3.Distance(other.transform.position, enemy.transform.position) < VisibilityDistance)
                 {
-                    Tips.Instance.ShowTip("There are enemies. Press \"Enter\" button to enter in combat state. To quit combat state press that button again.");
+                    Tips.Instance.ShowTip("There are enemies. Press \"Enter\" button to enter in combat state. To quit combat state press that button again." +
+                                          "\n Sorry for the vision from the tower :3");
                 }
             }
         }

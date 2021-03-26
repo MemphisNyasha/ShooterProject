@@ -106,9 +106,9 @@ public class PlayerController : MonoBehaviour
 
     private void HandleAimingInput()
     {
-        verticalAngle -= playerInput.GetVertical() * RotationSpeed;
+        verticalAngle -= playerInput.GetVertical() * RotationSpeed * Time.deltaTime;
         verticalAngle = Mathf.Clamp(verticalAngle, VerticalClamp.x, VerticalClamp.y);
-        horizontalAngle = playerInput.GetHorizontal() * RotationSpeed;
+        horizontalAngle = playerInput.GetHorizontal() * RotationSpeed * Time.deltaTime;
 
         Spine.localEulerAngles = new Vector3(verticalAngle + spineAngleCorrection, 0, 0);
 
